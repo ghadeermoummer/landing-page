@@ -489,11 +489,11 @@
     </footer>
 
     <!-- JavaScript for Accordion -->
-    <script>
+   <script>
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
+                faqItem.classList.toggle('active'); // يظهر الإجابة إذا كانت مخفية، ويخفيها إذا كانت ظاهرة
             });
         });
     </script>
