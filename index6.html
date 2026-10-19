@@ -289,18 +289,28 @@
         }
 
         .faq-answer {
-            padding: 0 1.2rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background: var(--white);
-            color: var(--text-muted);
-        }
+    padding: 0 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    /* إخفاء المحتوى تماماً وبشكل آمن للمحتوى و قارئات الشاشة */
+    visibility: hidden; 
+    opacity: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    background: var(--white);
+    color: var(--text-muted);
+}
 
-        .faq-item.active .faq-answer {
-            padding: 1.2rem;
-            max-height: 200px;
-        }
+.faq-item.active .faq-answer {
+    padding: 1.2rem;
+    /* حدد قيمة أكبر قليلاً إذا كان محتوى الإجابات طويلاً، أو استخدم القيمة المناسبة */
+    max-height: 500px; 
+    visibility: visible;
+    opacity: 1;
+}
+
+.faq-item.active i {
+    transform: rotate(180deg);
+}
 
         .faq-item.active i {
             transform: rotate(180deg);
