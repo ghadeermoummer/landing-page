@@ -3,253 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عطور براند | أفخم العطور في غزة</title>
-    <meta name="description" content="متجر عطور براند - وجهتك الأولى للعطور الفاخرة والفريدة في غزة. تشكيلة مميزة من العطور الرجالية والنسائية وعطور المناسبات.">
-    <!-- Google Fonts: Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+    <title>عطور براند | B RAND Perfumes - غزة</title>
+    <meta name="description" content="متجر عطور براند في غزة - عطور فاخرة نسائية ورجالية وللجنسين تعبر عن شخصيتك وبصمتك الخاصة.">
+    <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --color-light-yellow: #FEF2A0;
-            --color-warm-gold: #F3CD97;
-            --color-copper-orange: #E98B50;
-            --color-luxury-red: #BC4F4F;
-            --color-dark-red: #8B3232;
-            --color-text: #333333;
-            --color-white: #ffffff;
-            --color-whatsapp: #25D366;
+            --bg-light: #FEF2A0;
+            --bg-card: #F3CD97;
+            --accent-warm: #E98B50;
+            --primary-red: #BC4F4F;
+            --text-dark: #2C1810;
+            --text-muted: #665248;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(188, 79, 79, 0.1);
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Cairo', sans-serif;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
         }
 
         body {
-            background-color: var(--color-light-yellow);
-            color: var(--color-text);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         /* Header */
         header {
-            background-color: var(--color-white);
-            box-shadow: 0 2px 10px rgba(188, 79, 79, 0.1);
             position: sticky;
             top: 0;
+            background: rgba(254, 242, 160, 0.95);
+            backdrop-filter: blur(8px);
             z-index: 1000;
-        }
-
-        .header-content {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
 
         .logo {
-            font-size: 26px;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: var(--color-luxury-red);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            color: var(--primary-red);
+            letter-spacing: -0.5px;
         }
 
-        .nav-links {
+        nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 2rem;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--color-luxury-red);
-            font-weight: 600;
+        nav a {
+            font-weight: 500;
             transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--color-copper-orange);
+        nav a:hover {
+            color: var(--primary-red);
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
-
-        .icon-btn {
-            color: var(--color-luxury-red);
-            font-size: 20px;
-            cursor: pointer;
-            text-decoration: none;
+            gap: 1.2rem;
         }
 
         .btn-primary {
-            background-color: var(--color-luxury-red);
-            color: var(--color-white);
-            padding: 10px 22px;
-            border-radius: 25px;
-            text-decoration: none;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
             font-weight: 700;
-            transition: background 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-block;
         }
 
         .btn-primary:hover {
-            background-color: var(--color-copper-orange);
+            background-color: var(--accent-warm);
             transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--color-luxury-red);
-            border: 2px solid var(--color-luxury-red);
-            padding: 10px 22px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-luxury-red);
-            color: var(--color-white);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--color-warm-gold), var(--color-light-yellow));
-            padding: 70px 0;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh;
+            gap: 2rem;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+        .hero-content {
+            flex: 1;
         }
 
-        .hero-text h1 {
-            font-size: 42px;
-            color: var(--color-luxury-red);
-            margin-bottom: 15px;
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-red);
             line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
-        .hero-text p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #555;
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
         }
 
         .hero-image img {
-            width: 100%;
-            max-height: 480px;
-            object-fit: cover;
+            max-width: 100%;
             border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Section Styling */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 35px 0;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--color-luxury-red);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            width: 60%;
-            height: 3px;
-            background-color: var(--color-copper-orange);
-            position: absolute;
-            bottom: -8px;
-            right: 20%;
-            border-radius: 2px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
         }
 
         /* Categories */
-        .categories-grid {
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-red);
+            margin-bottom: 2.5rem;
+            font-weight: 800;
+        }
+
+        .categories {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
+            gap: 1.5rem;
         }
 
         .category-card {
-            background: var(--color-white);
+            background: var(--bg-card);
+            padding: 2rem;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
             transition: transform 0.3s;
-            text-decoration: none;
-            color: inherit;
+            cursor: pointer;
         }
 
         .category-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px);
         }
 
-        .category-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
         }
 
-        .category-card h3 {
-            padding: 15px;
-            color: var(--color-luxury-red);
+        /* Products Section */
+        .products {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* Best Sellers & Products */
-        .products-grid {
+        .grid-products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            gap: 2rem;
         }
 
         .product-card {
-            background-color: var(--color-white);
-            border: 1px solid var(--color-warm-gold);
+            background: var(--white);
             border-radius: 15px;
-            padding: 20px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            box-shadow: var(--shadow);
             transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            position: relative;
         }
 
         .product-card:hover {
@@ -258,136 +230,263 @@
 
         .badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--color-copper-orange);
-            color: var(--color-white);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 700;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
 
-        .product-card img {
+        .product-img {
             width: 100%;
-            height: 220px;
+            height: 250px;
             object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            background-color: var(--bg-card);
         }
 
-        .product-card h3 {
-            color: var(--color-luxury-red);
-            font-size: 20px;
-            margin-bottom: 8px;
+        .product-info {
+            padding: 1.5rem;
         }
 
-        .product-card p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-red);
+            margin: 0.5rem 0 1rem 0;
         }
 
-        .price-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            font-size: 20px;
-            font-weight: 800;
-            color: var(--color-luxury-red);
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 15px;
-        }
-
-        /* Brand Experience */
-        .experience {
-            background-color: var(--color-warm-gold);
-            padding: 60px 0;
-            margin-top: 60px;
-            border-radius: 20px;
-        }
-
-        /* Why Choose Us */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .feature-box {
-            background: var(--color-white);
-            padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-
-        .feature-box i {
-            font-size: 36px;
-            color: var(--color-copper-orange);
-            margin-bottom: 15px;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(135deg, var(--color-luxury-red), var(--color-dark-red));
-            color: var(--color-white);
-            padding: 50px 20px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 60px 0;
-        }
-
-        .newsletter h2 {
-            margin-bottom: 10px;
-        }
-
-        .newsletter form {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            max-width: 500px;
-            margin: 25px auto 0 auto;
-        }
-
-        .newsletter input {
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: none;
-            width: 70%;
-            outline: none;
-        }
-
-        .newsletter button {
-            background-color: var(--color-warm-gold);
-            color: var(--color-luxury-red);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 25px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* FAQ - Accordion */
-        .faq-list {
+        /* FAQ Accordion */
+        .faq-section {
+            padding: 4rem 2rem;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .faq-item {
-            background-color: var(--color-white);
-            margin-bottom: 15px;
+            background: var(--white);
+            margin-bottom: 1rem;
             border-radius: 10px;
-            border: 1px solid var(--color-warm-gold);
             overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
-        .
+        .faq-question {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--bg-card);
+            border: none;
+            text-align: right;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: var(--white);
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 200px;
+        }
+
+        .faq-item.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">عطور براند</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#categories">التصنيفات</a></li>
+                <li><a href="#bestsellers">الأكثر مبيعاً</a></li>
+                <li><a href="#faq">الأسئلة الشائعة</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <i class="fas fa-search" style="font-size: 1.2rem; cursor: pointer;"></i>
+            <i class="fas fa-shopping-bag" style="font-size: 1.2rem; cursor: pointer;"></i>
+            <a href="#bestsellers" class="btn-primary">تسوق الآن</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">عطرك ليس مجرد رائحة... إنه بصمتك الخاصة</h1>
+            <p class="hero-subtitle">اكتشف عطوراً فاخرة من متجر "عطور براند" في غزة تعبّر عن شخصيتك وترافق أجمل لحظاتك.</p>
+            <div class="hero-buttons">
+                <a href="#bestsellers" class="btn-primary">اكتشف العطور</a>
+                <a href="#categories" class="btn-secondary">التصنيفات</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="watermarked_img_3984775798369369627.jpg" alt="زجاجة عطر فاخرة - عطور براند">
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <h2 class="section-title">تصنيفات العطور</h2>
+        <div class="grid-categories">
+            <div class="category-card">
+                <i class="fas fa-mars"></i>
+                <h3>عطور رجالية</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-venus"></i>
+                <h3>عطور نسائية</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-genderless"></i>
+                <h3>عطور للجنسين</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-gift"></i>
+                <h3>هدايا ومناسبات</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section class="products" id="bestsellers">
+        <h2 class="section-title">الأكثر مبيعاً</h2>
+        <div class="grid-products">
+            <div class="product-card">
+                <span class="badge">الأكثر مبيعاً</span>
+                <img src="watermarked_img_3984775798369369627.jpg" class="product-img" alt="عطر الملكي">
+                <div class="product-info">
+                    <h3>عطر العود الملكي</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">نفحات العود الفاخر مع لمسة العنبر</p>
+                    <div class="product-price">120 شيكل</div>
+                    <button class="btn-primary" style="width: 100%;">أضف إلى السلة</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="watermarked_img_3984775798369369627.jpg" class="product-img" alt="عطر الورد">
+                <div class="product-info">
+                    <h3>عطر الورد الفرنسي</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">مزيج الأزهار الرقيقة والمسك الأنيق</p>
+                    <div class="product-price">100 شيكل</div>
+                    <button class="btn-primary" style="width: 100%;">أضف إلى السلة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="faq-section" id="faq">
+        <h2 class="section-title">الأسئلة الشائعة</h2>
+        <div class="faq-item">
+            <button class="faq-question">
+                كيف أختار العطر المناسب لي؟
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                يمكنك اختيار العطر بناءً على المناسبة أو الفصل، كما نتيح لك طلب عينات تجريبية لمعرفة الرائحة التي تناسب ذوقك وشخصيتك.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                هل يتوفر التوصيل داخل قطاع غزة؟
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                نعم، نوفر خدمة التوصيل السريع لجميع مناطق ومحافظات قطاع غزة.
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                ما هي طرق الدفع المتاحة؟
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                نوفر الدفع نقداً عند الاستلام لضمان راحتكم ورضاكم التام عن المنتج.
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/970000000000" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+        <span>تواصل عبر الواتساب</span>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 لـ <strong>عطور براند - غزة</strong></p>
+    </footer>
+
+    <!-- JavaScript for Accordion -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
