@@ -3,260 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عطور براند | متجر العطور الفاخرة في غزة</title>
-    <meta name="description" content="متجر عطور براند - تشكيلة فاخرة من العطور الرجالية والنسائية وعطور المناسبات في غزة بأعلى جودة وأفضل الأسعار.">
+    <title>عطور براند | بصمتك العطرية الفاخرة في غزة</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            light: '#FEF2A0',    /* خلفيات وأضواء */
-                            soft: '#F3CD97',     /* ألوان ثانوية */
-                            warm: '#E98B50',     /* أزرار وتفاعل */
-                            deep: '#BC4F4F',     /* نبيتي عنابي للنصوص البارزة */
-                            dark: '#2D1619',     /* نص داكن وفخم */
-                            whatsapp: '#25D366'  /* لون الواتساب الرسمي */
-                        }
+                        brandYellow: '#FEF2A0',
+                        brandPeach: '#F3CD97',
+                        brandOrange: '#E98B50',
+                        brandRed: '#BC4F4F',
+                        brandDark: '#2C1810',
                     },
                     fontFamily: {
-                        cairo: ['Cairo', 'sans-serif']
+                        arabic: ['Tajawal', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Cairo', sans-serif;
+        body { font-family: 'Tajawal', sans-serif; background-color: #FFFDF9; color: #2C1810; }
+
+        /* تنسيقات قسم الأسئلة الشائعة وتسهيل حركة الأكورديون */
+        .faq-section {
             background-color: #FEF2A0;
-            color: #2D1619;
+            padding: 4rem 1rem;
+            direction: rtl;
         }
-        .accordion-content {
-            max-height: 0;
+
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .faq-item {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            border: 1px solid rgba(243, 205, 151, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-align: right;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #2C1810;
+        }
+
+        .faq-question i {
+            color: #E98B50;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #555555;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
         }
     </style>
 </head>
-<body class="bg-brand-light text-brand-dark antialiased selection:bg-brand-warm selection:text-white">
+<body class="bg-[#FFFDF9] text-[#2C1810] antialiased">
 
     <!-- Header / رأس الصفحة -->
-    <header class="sticky top-0 z-40 bg-brand-light/95 backdrop-blur-md border-b border-brand-soft/50 shadow-sm">
+    <header class="sticky top-0 z-50 bg-[#FFFDF9]/95 backdrop-blur-md shadow-sm border-b border-[#F3CD97]/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-2 text-2xl sm:text-3xl font-extrabold text-brand-deep tracking-wide">
-                <i class="fa-solid me-1 fa-spray-can-sparkles text-brand-warm"></i>
-                <span>عطور براند</span>
-            </a>
-
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-semibold text-lg">
-                <a href="#hero" class="hover:text-brand-warm transition-colors">الرئيسية</a>
-                <a href="#categories" class="hover:text-brand-warm transition-colors">التصنيفات</a>
-                <a href="#bestsellers" class="hover:text-brand-warm transition-colors">الأكثر مبيعاً</a>
-                <a href="#offers" class="hover:text-brand-warm transition-colors">العروض</a>
-                <a href="#faq" class="hover:text-brand-warm transition-colors">الأسئلة الشائعة</a>
+            <div class="flex items-center gap-3">
+                <span class="text-2xl font-black tracking-wider text-[#BC4F4F]">عطور براند</span>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#hero" class="hover:text-[#E98B50] transition">الرئيسية</a>
+                <a href="#categories" class="hover:text-[#E98B50] transition">التصنيفات</a>
+                <a href="#bestsellers" class="hover:text-[#E98B50] transition">الأكثر مبيعاً</a>
+                <a href="#experience" class="hover:text-[#E98B50] transition">من نحن</a>
+                <a href="#faq" class="hover:text-[#E98B50] transition">الأسئلة الشائعة</a>
             </nav>
 
-            <!-- Actions & Icons -->
             <div class="flex items-center gap-4">
-                <button aria-label="بحث" class="p-2 hover:bg-brand-soft/40 rounded-full transition-colors text-xl">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                <button class="p-2 text-[#2C1810] hover:text-[#E98B50] transition"><i class="fa-solid fa-search text-lg"></i></button>
+                <button class="p-2 text-[#2C1810] hover:text-[#E98B50] transition relative">
+                    <i class="fa-solid fa-shopping-bag text-lg"></i>
+                    <span class="absolute top-0 right-0 bg-[#BC4F4F] text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">0</span>
                 </button>
-                <button aria-label="سلة التسوق" class="p-2 hover:bg-brand-soft/40 rounded-full transition-colors text-xl relative">
-                    <i class="fa-solid fa-bag-shopping"></i>
-                    <span class="absolute top-1 right-1 bg-brand-deep text-white text-xs rounded-full h-4 w-4 flex items-center justify-center font-bold">2</span>
-                </button>
-                <a href="#bestsellers" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 bg-brand-warm hover:bg-brand-deep text-white font-bold rounded-lg shadow transition-all duration-300">
+                <a href="#bestsellers" class="hidden sm:inline-block bg-[#E98B50] hover:bg-[#BC4F4F] text-white px-5 py-2.5 rounded-full font-bold shadow-md transition duration-300">
                     اكتشف عطرك
                 </a>
-                <button id="menu-btn" aria-label="القائمة" class="md:hidden p-2 text-2xl text-brand-dark focus:outline-none">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
             </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-soft/30 border-b border-brand-soft px-4 py-4 space-y-3 font-semibold text-center">
-            <a href="#hero" class="block hover:text-brand-warm py-1">الرئيسية</a>
-            <a href="#categories" class="block hover:text-brand-warm py-1">التصنيفات</a>
-            <a href="#bestsellers" class="block hover:text-brand-warm py-1">الأكثر مبيعاً</a>
-            <a href="#offers" class="block hover:text-brand-warm py-1">العروض</a>
-            <a href="#faq" class="block hover:text-brand-warm py-1">الأسئلة الشائعة</a>
         </div>
     </header>
 
     <!-- Hero Section / القسم الرئيسي -->
-    <section id="hero" class="relative py-12 lg:py-24 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-right space-y-6">
-                    <span class="inline-block px-4 py-1.5 bg-brand-soft/60 text-brand-deep font-bold rounded-full text-sm border border-brand-soft">
-                        ✨ الفخامة والأناقة في قطاع غزة
-                    </span>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight">
-                        عطرك ليس مجرد رائحة... <br>
-                        <span class="text-brand-deep">إنه بصمتك الخاصة.</span>
-                    </h1>
-                    <p class="text-lg sm:text-xl text-brand-dark/80 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        اكتشف تشكيلة فاخرة من أجود العطور الشرقية والغربية في غزة، صُممت لتلائم حضورك وتصنع لك ذكريات لا تُنسى.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                        <a href="#bestsellers" class="px-8 py-4 bg-brand-warm hover:bg-brand-deep text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
-                            اكتشف العطور
-                        </a>
-                        <a href="#offers" class="px-8 py-4 bg-brand-soft hover:bg-brand-soft/80 text-brand-dark font-bold text-lg rounded-xl border border-brand-warm/30 transition-all duration-300 text-center">
-                            تسوق العروض الحصرية
-                        </a>
-                    </div>
+    <section id="hero" class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-[#FEF2A0]/40 to-[#FFFDF9]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 text-center lg:text-right">
+                <span class="inline-block bg-[#F3CD97]/40 text-[#BC4F4F] px-4 py-1.5 rounded-full text-sm font-bold tracking-wide">
+                    ✨ عطور فاخرة تلامس الروح في غزة
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-[#2C1810]">
+                    عطرك ليس مجرد رائحة... <br><span class="text-[#BC4F4F]">إنه بصمتك الخاصة.</span>
+                </h1>
+                <p class="text-lg text-gray-700 max-w-xl mx-auto lg:mx-0">
+                    اكتشف تشكيلة حصرية من أرقى العطور العالمية والمحلية التي تعبّر عن شخصيتك وترافق أجمل لحظاتك بكل فخامة وأناقة.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                    <a href="#bestsellers" class="bg-[#BC4F4F] hover:bg-[#a03d3d] text-white px-8 py-3.5 rounded-full font-bold shadow-lg transition duration-300 text-center">
+                        اكتشف العطور
+                    </a>
+                    <a href="#bestsellers" class="border-2 border-[#E98B50] text-[#E98B50] hover:bg-[#E98B50] hover:text-white px-8 py-3.5 rounded-full font-bold transition duration-300 text-center">
+                        تسوق الأكثر مبيعاً
+                    </a>
                 </div>
-                <div class="relative flex justify-center">
-                    <div class="absolute -inset-4 bg-brand-soft/40 rounded-full blur-2xl"></div>
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800" alt="زجاجة عطر فاخرة" class="relative rounded-2xl shadow-2xl w-full max-w-md object-cover border-4 border-white/50">
-                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="absolute w-72 h-72 lg:w-96 lg:h-96 bg-[#F3CD97]/50 rounded-full blur-3xl -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=1000&auto=format&fit=crop" alt="زجاجة عطر فاخرة" class="rounded-2xl shadow-2xl max-w-full h-auto object-cover border-4 border-[#FEF2A0]">
             </div>
         </div>
     </section>
 
     <!-- Categories / التصنيفات -->
-    <section id="categories" class="py-16 bg-brand-soft/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-extrabold text-brand-deep mb-3">تصنيفات العطور</h2>
-                <p class="text-brand-dark/80 text-lg">اختر الفئة التي تناسب ذوقك وأسلوب حياتك</p>
+    <section id="categories" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-black text-[#2C1810]">تصنيفات العطور</h2>
+            <p class="text-gray-600 mt-2">تخاطب كل حواسك، مصممة خصيصاً لتناسب ذوقك الرفيع</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-[#F3CD97]/40 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=600&auto=format&fit=crop" alt="عطور رجالية" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 text-center bg-gradient-to-t from-white via-white/90 to-transparent">
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-1">عطور رجالية</h3>
+                    <p class="text-sm text-gray-500 mb-3">قوة وثبات يدوم طويلاً</p>
+                    <span class="text-[#E98B50] font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all">استكشف المجموعة <i class="fa-solid fa-arrow-left"></i></span>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Category Card 1 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-brand-soft hover:shadow-xl transition-all duration-300 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=500" alt="عطور رجالية" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent flex flex-col justify-end p-6 text-white">
-                        <h3 class="text-2xl font-bold mb-1">عطور رجالية</h3>
-                        <p class="text-sm text-brand-light/90">روائح قوية وفخمة للرجل العصري</p>
-                    </div>
+            <!-- Card 2 -->
+            <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-[#F3CD97]/40 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?q=80&w=600&auto=format&fit=crop" alt="عطور نسائية" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-
-                <!-- Category Card 2 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-brand-soft hover:shadow-xl transition-all duration-300 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&q=80&w=500" alt="عطور نسائية" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent flex flex-col justify-end p-6 text-white">
-                        <h3 class="text-2xl font-bold mb-1">عطور نسائية</h3>
-                        <p class="text-sm text-brand-light/90">لمسات أنثوية رقيقة وجذابة</p>
-                    </div>
+                <div class="p-6 text-center bg-gradient-to-t from-white via-white/90 to-transparent">
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-1">عطور نسائية</h3>
+                    <p class="text-sm text-gray-500 mb-3">أناقة وأنوثة طاغية</p>
+                    <span class="text-[#E98B50] font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all">استكشف المجموعة <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
-
-                <!-- Category Card 3 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-brand-soft hover:shadow-xl transition-all duration-300 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&q=80&w=500" alt="عطور للجنسين" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent flex flex-col justify-end p-6 text-white">
-                        <h3 class="text-2xl font-bold mb-1">عطور للجنسين</h3>
-                        <p class="text-sm text-brand-light/90">تناغم مثالي بين العود والزهور</p>
-                    </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-[#F3CD97]/40 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?q=80&w=600&auto=format&fit=crop" alt="عطور للجنسين" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-
-                <!-- Category Card 4 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-brand-soft hover:shadow-xl transition-all duration-300 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=500" alt="مجموعات ومناسبات" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent flex flex-col justify-end p-6 text-white">
-                        <h3 class="text-2xl font-bold mb-1">هدايا ومناسبات</h3>
-                        <p class="text-sm text-brand-light/90">تغليف فاخر يبيض الوجه</p>
-                    </div>
+                <div class="p-6 text-center bg-gradient-to-t from-white via-white/90 to-transparent">
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-1">عطور للجنسين</h3>
+                    <p class="text-sm text-gray-500 mb-3">جاذبية فريدة للجميع</p>
+                    <span class="text-[#E98B50] font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all">استكشف المجموعة <i class="fa-solid fa-arrow-left"></i></span>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="group relative rounded-2xl overflow-hidden shadow-md bg-white border border-[#F3CD97]/40 cursor-pointer transition transform hover:-translate-y-1">
+                <div class="h-60 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=600&auto=format&fit=crop" alt="هدايا ومناسبات" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 text-center bg-gradient-to-t from-white via-white/90 to-transparent">
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-1">عطور المناسبات والهدايا</h3>
+                    <p class="text-sm text-gray-500 mb-3">صُممت لأغلى الناس</p>
+                    <span class="text-[#E98B50] font-bold inline-flex items-center gap-1 group-hover:gap-2 transition-all">استكشف المجموعة <i class="fa-solid fa-arrow-left"></i></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Best Sellers / الأكثر مبيعاً في غزة -->
-    <section id="bestsellers" class="py-16">
+    <!-- Best Sellers / الأكثر مبيعاً -->
+    <section id="bestsellers" class="py-16 bg-[#FEF2A0]/20 border-y border-[#F3CD97]/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
-                    <h2 class="text-3xl font-extrabold text-brand-deep mb-2">الأكثر طلباً في غزة</h2>
-                    <p class="text-brand-dark/80">العطور الأكثر مبيعاً وإقبالاً لدى زبائننا</p>
+                    <span class="text-[#BC4F4F] font-bold text-sm tracking-wider uppercase">الأكثر طلباً</span>
+                    <h2 class="text-3xl font-black text-[#2C1810] mt-1">منتجات الأكثر مبيعاً</h2>
                 </div>
-                <a href="https://wa.me/972590000000?text=مرحباً،%20أود%20الاستفسار%20عن%20قائمة%20العطور%20المتاحة" target="_blank" class="text-brand-deep font-bold hover:text-brand-warm flex items-center gap-2">
-                    عرض جميع المنتجات <i class="fa-solid fa-arrow-left"></i>
-                </a>
+                <a href="#" class="text-[#E98B50] font-bold hover:text-[#BC4F4F] transition mt-4 md:mt-0 inline-flex items-center gap-1">عرض كل المنتجات <i class="fa-solid fa-arrow-left"></i></a>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product Card 1: Silver Scent -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-brand-soft/60 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-[#F3CD97]/50 overflow-hidden flex flex-col justify-between">
                     <div class="relative">
-                        <span class="absolute top-4 right-4 bg-brand-deep text-white text-xs font-bold px-3 py-1.5 rounded-full z-10">الأكثر مبيعاً</span>
-                        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&q=80&w=500" alt="سيلفر سينت" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 right-4 bg-[#BC4F4F] text-white text-xs px-3 py-1 rounded-full font-bold shadow">الأكثر مبيعاً</span>
+                        <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=600&auto=format&fit=crop" alt="عطر رويال أود" class="w-full h-72 object-cover">
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-brand-dark">سيلفر سينت (Silver Scent)</h3>
-                            <p class="text-sm text-brand-dark/70 mt-1">عطر رجالي فواح وثابت للغاية برائحة الأحاسيس والأخشاب.</p>
+                            <h3 class="text-xl font-bold text-[#2C1810] mb-1">عطر رويال أود الفاخر</h3>
+                            <p class="text-sm text-gray-600 mb-4">تركيبة ساحرة تجمع بين نفحات العود الأصيل والمسك الأبيض.</p>
                         </div>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                             <div>
-                                <span class="text-2xl font-extrabold text-brand-deep">120 ₪</span>
-                                <span class="text-sm text-gray-400 line-through mr-2">150 ₪</span>
+                                <span class="text-xl font-black text-[#BC4F4F]">120 شيكل</span>
+                                <span class="text-xs text-gray-400 line-through mr-2">150 شيكل</span>
                             </div>
-                            <span class="text-xs bg-brand-soft/40 text-brand-dark font-semibold px-2.5 py-1 rounded">100 مل</span>
+                            <button class="bg-[#E98B50] hover:bg-[#BC4F4F] text-white px-4 py-2 rounded-xl font-bold transition flex items-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> أضف للسلة
+                            </button>
                         </div>
-                        <a href="https://wa.me/972590000000?text=مرحباً،%20أود%20طلب%20عطر%20سيلفر%20سينت" target="_blank" class="w-full py-3 bg-brand-warm hover:bg-brand-deep text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
-                            <i class="fa-solid fa-cart-plus"></i> أطلب الآن عبر الواتساب
-                        </a>
                     </div>
                 </div>
 
-                <!-- Product Card 2: Sauvage -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-brand-soft/60 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-[#F3CD97]/50 overflow-hidden flex flex-col justify-between">
                     <div class="relative">
-                        <span class="absolute top-4 right-4 bg-brand-warm text-white text-xs font-bold px-3 py-1.5 rounded-full z-10">مميز جداً</span>
-                        <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=500" alt="سوفاج ديور" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 right-4 bg-[#E98B50] text-white text-xs px-3 py-1 rounded-full font-bold shadow">مميز</span>
+                        <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600&auto=format&fit=crop" alt="عطر الجوهرة" class="w-full h-72 object-cover">
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-brand-dark">سوفاج (Sauvage)</h3>
-                            <p class="text-sm text-brand-dark/70 mt-1">أيقونة العطور الرجالية الفاخرة برائحة الانتعاش والبرغموت.</p>
+                            <h3 class="text-xl font-bold text-[#2C1810] mb-1">عطر براند قولدن بلوم</h3>
+                            <p class="text-sm text-gray-600 mb-4">انتعاش الأزهار البرية الممزوجة بالفانيليا الدافئة لكل الأوقات.</p>
                         </div>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                             <div>
-                                <span class="text-2xl font-extrabold text-brand-deep">140 ₪</span>
-                                <span class="text-sm text-gray-400 line-through mr-2">180 ₪</span>
+                                <span class="text-xl font-black text-[#BC4F4F]">95 شيكل</span>
                             </div>
-                            <span class="text-xs bg-brand-soft/40 text-brand-dark font-semibold px-2.5 py-1 rounded">100 مل</span>
+                            <button class="bg-[#E98B50] hover:bg-[#BC4F4F] text-white px-4 py-2 rounded-xl font-bold transition flex items-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> أضف للسلة
+                            </button>
                         </div>
-                        <a href="https://wa.me/972590000000?text=مرحباً،%20أود%20طلب%20عطر%20سوفاج" target="_blank" class="w-full py-3 bg-brand-warm hover:bg-brand-deep text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
-                            <i class="fa-solid fa-cart-plus"></i> أطلب الآن عبر الواتساب
-                        </a>
                     </div>
                 </div>
 
-                <!-- Product Card 3: Coco Mademoiselle -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-brand-soft/60 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-[#F3CD97]/50 overflow-hidden flex flex-col justify-between">
                     <div class="relative">
-                        <span class="absolute top-4 right-4 bg-brand-deep text-white text-xs font-bold px-3 py-1.5 rounded-full z-10">الأكثر طلباً نسائي</span>
-                        <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&q=80&w=500" alt="كوكو مادموازيل" class="w-full h-64 object-cover">
+                        <span class="absolute top-4 right-4 bg-[#BC4F4F] text-white text-xs px-3 py-1 rounded-full font-bold shadow">إصدار محدود</span>
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=crop" alt="عطر نايت مسك" class="w-full h-72 object-cover">
                     </div>
-                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-xl font-bold text-brand-dark">كوكو مادموازيل (Coco Mademoiselle)</h3>
-                            <p class="text-sm text-brand-dark/70 mt-1">عطر نسائي ساحر بعبير الزهور والشرقيات الأنيقة.</p>
+                            <h3 class="text-xl font-bold text-[#2C1810] mb-1">عطر مسك الليل</h3>
+                            <p class="text-sm text-gray-600 mb-4">سر الفخامة والغموض في السهرات الخاصة والمناسبات الكبرى.</p>
                         </div>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                             <div>
-                                <span class="text-2xl font-extrabold text-brand-deep">150 ₪</span>
-                                <span class="text-sm text-gray-400 line-through mr-2">190 ₪</span>
+                                <span class="text-xl font-black text-[#BC4F4F]">140 شيكل</span>
+                                <span class="text-xs text-gray-400 line-through mr-2">170 شيكل</span>
                             </div>
-                            <span class="text-xs bg-brand-soft/40 text-brand-dark font-semibold px-2.5 py-1 rounded">100 مل</span>
+                            <button class="bg-[#E98B50] hover:bg-[#BC4F4F] text-white px-4 py-2 rounded-xl font-bold transition flex items-center gap-2">
+                                <i class="fa-solid fa-cart-plus"></i> أضف للسلة
+                            </button>
                         </div>
-                        <a href="https://wa.me/972590000000?text=مرحباً،%20أود%20طلب%20عطر%20كوكو%20مادموازيل" target="_blank" class="w-full py-3 bg-brand-warm hover:bg-brand-deep text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-colors">
-                            <i class="fa-solid fa-cart-plus"></i> أطلب الآن عبر الواتساب
-                        </a>
                     </div>
                 </div>
             </div>
@@ -264,246 +291,218 @@
     </section>
 
     <!-- Brand Experience / تجربة العلامة التجارية -->
-    <section class="py-16 bg-brand-soft/30 border-y border-brand-soft/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <img src="https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&q=80&w=800" alt="تجربة عطور براند" class="rounded-2xl shadow-lg w-full h-80 sm:h-96 object-cover">
-                <div class="space-y-6">
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-deep">لكل لحظة عطرها... ولكل شخصية بصمتها</h2>
-                    <p class="text-lg text-brand-dark/80 leading-relaxed">
-                        في <strong>عطور براند</strong>، نسعى دائماً لتوفير أفضل الزيوت العطرية العالمية والتركيبات الفاخرة بتركيز وثبات عالي يناسب أذواق أهلنا في غزة.
-                    </p>
-                    <ul class="space-y-3 font-semibold text-brand-dark">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-warm"></i> تركيز عالي وثبات يدوم طويلاً.</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-warm"></i> اختيار دقيق لأفضل الزيوت العطرية.</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-brand-warm"></i> تغليف إهدائي فاخر يناسب جميع المناسبات.</li>
-                    </ul>
+    <section id="experience" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-r from-[#F3CD97]/30 to-[#FEF2A0]/50 rounded-3xl p-8 lg:p-16 border border-[#F3CD97] grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-[#BC4F4F] font-bold text-sm tracking-wider uppercase">فلسفتنا العطرية</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-[#2C1810]">لكل لحظة عطرها، ولكل شخصية بصمتها.</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    نحن في متجر <strong class="text-[#BC4F4F]">عطور براند</strong> نؤمن بأن العطر ليس مجرد سائل معطر، بل هو حكاية تُروى بلا كلمات. نعمل بعناية فائقة لتوفير تركيبات ثابتة وعالية الجودة تناسب تطلعاتكم وتليق بأذواقكم الرفيعة في غزة.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="bg-white/80 p-4 rounded-xl border border-[#F3CD97]/50">
+                        <h4 class="font-black text-2xl text-[#BC4F4F]">100%</h4>
+                        <p class="text-sm text-gray-600 mt-1">ثبات وجودة عالية</p>
+                    </div>
+                    <div class="bg-white/80 p-4 rounded-xl border border-[#F3CD97]/50">
+                        <h4 class="font-black text-2xl text-[#BC4F4F]">خدمة راقية</h4>
+                        <p class="text-sm text-gray-600 mt-1">تغليف يناسب الهدايا</p>
+                    </div>
                 </div>
+            </div>
+            <div class="relative flex justify-center">
+                <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=800&auto=format&fit=crop" alt="تجربة عطور براند" class="rounded-2xl shadow-xl max-w-full h-auto object-cover">
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us / لماذا تختار متجرنا؟ -->
-    <section class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-brand-deep mb-12">لماذا تسوق من "عطور براند"؟</h2>
+    <!-- Why Choose Us / لماذا تختارنا -->
+    <section class="py-16 bg-white border-t border-[#F3CD97]/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-[#2C1810]">لماذا تختار متجرنا؟</h2>
+                <p class="text-gray-600 mt-2">نضمن لك تجربة تسوق استثنائية من الباب إلى الباب</p>
+            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-soft/60 space-y-4">
-                    <div class="w-16 h-16 bg-brand-soft/40 text-brand-deep text-2xl rounded-full flex items-center justify-center mx-auto">
-                        <i class="fa-solid fa-truck-fast"></i>
-                    </div>
-                    <h3 class="text-xl font-bold">توصيل سريع</h3>
-                    <p class="text-sm text-brand-dark/70">توصيل متاح لكافة مناطق القطاع بسرعة وأمان.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-soft/60 space-y-4">
-                    <div class="w-16 h-16 bg-brand-soft/40 text-brand-deep text-2xl rounded-full flex items-center justify-center mx-auto">
-                        <i class="fa-solid fa-gem"></i>
-                    </div>
-                    <h3 class="text-xl font-bold">جودة مضمونة</h3>
-                    <p class="text-sm text-brand-dark/70">تركيزات عالية وثبات ممتاز على الملابس والبشرة.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-soft/60 space-y-4">
-                    <div class="w-16 h-16 bg-brand-soft/40 text-brand-deep text-2xl rounded-full flex items-center justify-center mx-auto">
+                <div class="text-center p-6 rounded-2xl bg-[#FFFDF9] border border-[#F3CD97]/30 shadow-sm">
+                    <div class="w-14 h-14 mx-auto mb-4 bg-[#FEF2A0] text-[#BC4F4F] rounded-2xl flex items-center justify-center text-2xl shadow-sm">
                         <i class="fa-solid fa-gift"></i>
                     </div>
-                    <h3 class="text-xl font-bold">تغليف هدايا</h3>
-                    <p class="text-sm text-brand-dark/70">خدمة التغليف الفاخر المخصص للهدايا والمناسبات.</p>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1810]">تغليف مناسب للهدايا</h3>
+                    <p class="text-sm text-gray-600">علب وتغليف فاخر يليق بمناسباتكم السعيدة.</p>
                 </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-brand-soft/60 space-y-4">
-                    <div class="w-16 h-16 bg-brand-soft/40 text-brand-deep text-2xl rounded-full flex items-center justify-center mx-auto">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                <div class="text-center p-6 rounded-2xl bg-[#FFFDF9] border border-[#F3CD97]/30 shadow-sm">
+                    <div class="w-14 h-14 mx-auto mb-4 bg-[#FEF2A0] text-[#BC4F4F] rounded-2xl flex items-center justify-center text-2xl shadow-sm">
+                        <i class="fa-solid fa-truck-fast"></i>
                     </div>
-                    <h3 class="text-xl font-bold">الدفع عند الاستلام</h3>
-                    <p class="text-sm text-brand-dark/70">ادفع بكل سهولة بعد معاينة واستلام طلبك بالكامل.</p>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1810]">خدمة توصيل سريعة</h3>
+                    <p class="text-sm text-gray-600">توصيل آمن وسريع لكافة مناطق غزة.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-[#FFFDF9] border border-[#F3CD97]/30 shadow-sm">
+                    <div class="w-14 h-14 mx-auto mb-4 bg-[#FEF2A0] text-[#BC4F4F] rounded-2xl flex items-center justify-center text-2xl shadow-sm">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1810]">خيارات دفع مرنة</h3>
+                    <p class="text-sm text-gray-600">طرق دفع آمنة ومريحة عند الاستلام.</p>
+                </div>
+                <div class="text-center p-6 rounded-2xl bg-[#FFFDF9] border border-[#F3CD97]/30 shadow-sm">
+                    <div class="w-14 h-14 mx-auto mb-4 bg-[#FEF2A0] text-[#BC4F4F] rounded-2xl flex items-center justify-center text-2xl shadow-sm">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 text-[#2C1810]">دعم عملاء متواصل</h3>
+                    <p class="text-sm text-gray-600">فريق جاهز لمساعدتكم في اختيار العطر المناسب.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Special Offers / العروض الخاصة -->
-    <section id="offers" class="py-16 bg-brand-deep text-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-            <span class="px-4 py-1 bg-brand-warm text-white font-bold text-sm rounded-full inline-block">عرض خاص ومحدود</span>
-            <h2 class="text-3xl sm:text-5xl font-extrabold">بكج الفخامة الغزية (عطرين + عطر جيب مجاناً)</h2>
-            <p class="text-lg text-brand-light/90 max-w-2xl mx-auto">
-                احصل على أي عطرين من اختيارك (مثل سيلفر سينت وسوفاج) بسعر <span class="text-brand-light font-bold text-2xl">220 ₪</span> فقط بدلاً من <span class="line-through text-white/70">280 ₪</span> وشحن مجاني!
-            </p>
-            <div>
-                <a href="https://wa.me/972590000000?text=مرحباً،%20أرغب%20في%20طلب%20عرض%20بكج%20الفخامة" target="_blank" class="inline-block px-8 py-4 bg-brand-warm hover:bg-white hover:text-brand-deep text-white font-bold text-lg rounded-xl shadow-lg transition-all duration-300">
-                    اطلب العرض الآن عبر الواتساب
-                </a>
+    <!-- FAQ / الأسئلة الشائعة -->
+    <section id="faq" class="faq-section">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-black text-[#2C1810]">الأسئلة الشائعة</h2>
+            <p class="text-gray-700 mt-2">إجابات واضحة على أبرز استفساراتكم</p>
+        </div>
+        <div class="faq-container">
+            
+            <!-- Question 1 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>كم تكلفة ومدة التوصيل داخل قطاع غزة؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>التوصيل متوفر لكافة مناطق قطاع غزة. يستغرق التوصيل من 24 إلى 48 ساعة فقط بتكلفة رمزية (10-15 شيكل).</p>
+                </div>
             </div>
+
+            <!-- Question 2 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>ما هي طرق الدفع المتاحة؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>نوفر طريقة الدفع عند الاستلام نقداً بالشيكل الإسرائيلي (₪)، أو عبر المحافظ الإلكترونية المتاحة محلياً.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>هل العطور ثابته ومجربة؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>نعم بالتأكيد، كافة العطور مصنعة من زيوت عطرية مركزة بدرجة (Eau de Parfum) تضمن ثباتاً ورائحة فواحة تمتد لساعات طويلة.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>هل يمكن طلب العطر كهدية مع تغليف خاص؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>بالتأكيد! نوفر خيارات تغليف هدايا فاخرة وكروت إهداء مخصصة لإسعاد أحبابكم.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Testimonials / آراء العملاء في غزة -->
-    <section class="py-16 bg-brand-soft/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-extrabold text-brand-deep mb-2">ماذا يقول عملاؤنا في غزة؟</h2>
-                <p class="text-brand-dark/80">آراء نعتز بها من زبائننا الكرام</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-soft/60 space-y-4">
-                    <div class="text-brand-warm text-sm space-x-1 space-x-reverse">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-brand-dark/80 italic">"طلبت عطر سيلفر سينت من عندهم، الثبات مش طبيعي بضله على الأواعي أيام! والتوصيل كان سريع داخل غزة. يسلمو إيديكو."</p>
-                    <div class="font-bold text-brand-deep">— أ. محمد النجار (غزة - الرمال)</div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-soft/60 space-y-4">
-                    <div class="text-brand-warm text-sm space-x-1 space-x-reverse">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-brand-dark/80 italic">"التغليف فاخر جداً وينفع هدايا يبيض الوجه. أخذت بكج كوكو مادموازيل لزوجتي وعجبها كتير. تعامل راقي وسريع."</p>
-                    <div class="font-bold text-brand-deep">— المهندس أحمد أبو شعبان (خانيونس)</div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-soft/60 space-y-4">
-                    <div class="text-brand-warm text-sm space-x-1 space-x-reverse">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-brand-dark/80 italic">"أفضل متجر عطور بتعامل معاه، الأسعار بالشيكل ممتازة والمصداقية عالية والريحة بتجنن. موفقين دايماً."</p>
-                    <div class="font-bold text-brand-deep">— د. سارة شبير (غزة)</div>
-                </div>
-            </div>
+    <!-- Newsletter / النشرة البريدية -->
+    <section class="py-16 bg-[#F3CD97]/20 border-t border-[#F3CD97]/40">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-black text-[#2C1810] mb-3">انضم إلى عائلة عطور براند</h2>
+            <p class="text-gray-600 mb-8">اشترك في النشرة البريدية لتكن أول من يعلم بالعطور الجديدة والعروض الحصرية.</p>
+            <form class="flex flex-col sm:flex-row gap-3 justify-center" onsubmit="event.preventDefault(); alert('شكرًا لاشتراكك في عطور براند!');">
+                <input type="email" placeholder="أدخل بريدك الإلكتروني هنا..." required class="px-6 py-3.5 rounded-full border border-[#F3CD97] focus:outline-none focus:border-[#BC4F4F] bg-white flex-1 shadow-sm text-right">
+                <button type="submit" class="bg-[#BC4F4F] hover:bg-[#a03d3d] text-white px-8 py-3.5 rounded-full font-bold shadow-md transition duration-300">
+                    اشترك الآن
+                </button>
+            </form>
         </div>
     </section>
-
-    <!-- FAQ Section / الأسئلة الشائعة -->
-    <section id="faq" class="py-16">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-brand-deep mb-2">الأسئلة الشائعة</h2>
-                <p class="text-brand-dark/80">إجابات على أهم الاستفسارات حول الطلب والتوصيل</p>
-            </div>
-
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="bg-white rounded-xl border border-brand-soft/60 overflow-hidden">
-                    <button class="w-full p-5 text-right font-bold text-lg flex justify-between items-center text-brand-dark focus:outline-none accordion-btn">
-                        <span>كم تكلفة ومدة التوصيل داخل قطاع غزة؟</span>
-                        <i class="fa-solid fa-chevron-down text-brand-warm transition-transform"></i>
-                    </button>
-                    <div class="accordion-content px-5 pb-5 text-brand-dark/80 text-sm leading-relaxed">
-                        التوصيل متوفر لكافة مناطق قطاع غزة. يستغرق التوصيل من 24 إلى 48 ساعة فقط بتكلفة رمزية (10-15 شيكل).
-                    </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="bg-white rounded-xl border border-brand-soft/60 overflow-hidden">
-                    <button class="w-full p-5 text-right font-bold text-lg flex justify-between items-center text-brand-dark focus:outline-none accordion-btn">
-                        <span>ما هي طرق الدفع المتاحة؟</span>
-                        <i class="fa-solid fa-chevron-down text-brand-warm transition-transform"></i>
-                    </button>
-                    <div class="accordion-content px-5 pb-5 text-brand-dark/80 text-sm leading-relaxed">
-                        نوفر طريقة الدفع عند الاستلام نقداً بالشيكل الإسرائيلي (₪)، أو عبر المحافظ الإلكترونية المتاحة محلياً.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="bg-white rounded-xl border border-brand-soft/60 overflow-hidden">
-                    <button class="w-full p-5 text-right font-bold text-lg flex justify-between items-center text-brand-dark focus:outline-none accordion-btn">
-                        <span>هل العطور ثابته ومجربة؟</span>
-                        <i class="fa-solid fa-chevron-down text-brand-warm transition-transform"></i>
-                    </button>
-                    <div class="accordion-content px-5 pb-5 text-brand-dark/80 text-sm leading-relaxed">
-                        نعم بالتأكيد، كافة العطور مصنعة من زيوت عطرية مركزة بدرجة (Eau de Parfum) تضمن ثباتاً ورائحة فواحة تمتد لساعات طويلة.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WhatsApp Floating Button / زر الواتساب الثابت -->
-    <a href="https://wa.me/972590000000?text=مرحباً،%20أود%20الاستفسار%20عن%20العطور%20المتاحة%20في%20عطور%20براند" 
-       target="_blank" 
-       aria-label="تواصل معنا عبر الواتساب"
-       class="fixed bottom-6 left-6 z-50 bg-brand-whatsapp hover:bg-emerald-600 text-white rounded-full p-4 shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110">
-        <i class="fa-brands fa-whatsapp text-3xl"></i>
-    </a>
 
     <!-- Footer / تذييل الصفحة -->
-    <footer class="bg-brand-dark text-white pt-12 pb-6 border-t border-brand-deep">
+    <footer class="bg-[#2C1810] text-[#FEF2A0] py-12 border-t border-[#F3CD97]/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div class="space-y-4">
-                <div class="text-2xl font-extrabold text-brand-light flex items-center gap-2">
-                    <i class="fa-solid fa-spray-can-sparkles text-brand-warm"></i>
-                    <span>عطور براند</span>
-                </div>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                    متجر متخصص في تقديم أرقى العطور العالمية والشرقية في غزة بأعلى معايير الجودة والأناقة.
-                </p>
+                <h3 class="text-2xl font-black text-white">عطور براند</h3>
+                <p class="text-sm text-gray-300 leading-relaxed">وجهتك الأولى لعطرك المفضل في غزة. فخامة، أناقة، وبصمة لا تُنسى.</p>
             </div>
-
             <div>
-                <h4 class="font-bold text-brand-light mb-4 text-lg">روابط سريعة</h4>
+                <h4 class="font-bold text-white mb-4">روابط سريعة</h4>
                 <ul class="space-y-2 text-sm text-gray-300">
-                    <li><a href="#hero" class="hover:text-brand-warm">الرئيسية</a></li>
-                    <li><a href="#categories" class="hover:text-brand-warm">التصنيفات</a></li>
-                    <li><a href="#bestsellers" class="hover:text-brand-warm">الأكثر مبيعاً</a></li>
-                    <li><a href="#offers" class="hover:text-brand-warm">العروض</a></li>
+                    <li><a href="#hero" class="hover:text-[#FEF2A0] transition">الرئيسية</a></li>
+                    <li><a href="#categories" class="hover:text-[#FEF2A0] transition">التصنيفات</a></li>
+                    <li><a href="#bestsellers" class="hover:text-[#FEF2A0] transition">الأكثر مبيعاً</a></li>
+                    <li><a href="#experience" class="hover:text-[#FEF2A0] transition">من نحن</a></li>
                 </ul>
             </div>
-
             <div>
-                <h4 class="font-bold text-brand-light mb-4 text-lg">التواصل في غزة</h4>
+                <h4 class="font-bold text-white mb-4">سياسات المتجر</h4>
                 <ul class="space-y-2 text-sm text-gray-300">
-                    <li><i class="fa-solid fa-location-dot me-2 text-brand-warm"></i> قطاع غزة - فلسطين</li>
-                    <li><i class="fa-solid fa-phone me-2 text-brand-warm"></i> 0590000000</li>
-                    <li><i class="fa-solid fa-envelope me-2 text-brand-warm"></i> info@brandperfumes.ps</li>
+                    <li><a href="#" class="hover:text-[#FEF2A0] transition">سياسة الخصوصية</a></li>
+                    <li><a href="#" class="hover:text-[#FEF2A0] transition">الشروط والأحكام</a></li>
+                    <li><a href="#" class="hover:text-[#FEF2A0] transition">سياسة الاستبدال والاسترجاع</a></li>
                 </ul>
             </div>
-
             <div>
-                <h4 class="font-bold text-brand-light mb-4 text-lg">تابعنا على وسائل التواصل</h4>
-                <div class="flex gap-4 text-xl">
-                    <a href="#" class="w-10 h-10 bg-white/10 hover:bg-brand-warm rounded-full flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/10 hover:bg-brand-warm rounded-full flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 bg-white/10 hover:bg-brand-warm rounded-full flex items-center justify-center transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <h4 class="font-bold text-white mb-4">تواصل معنا</h4>
+                <p class="text-sm text-gray-300 mb-4">غزة، فلسطين</p>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/" target="_blank" class="w-10 h-10 rounded-full bg-[#E98B50] text-white flex items-center justify-center hover:bg-[#BC4F4F] transition"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#E98B50] text-white flex items-center justify-center hover:bg-[#BC4F4F] transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#E98B50] text-white flex items-center justify-center hover:bg-[#BC4F4F] transition"><i class="fa-brands fa-facebook-f"></i></a>
                 </div>
             </div>
         </div>
-
-        <div class="max-w-7xl mx-auto px-4 border-t border-white/10 pt-6 text-center text-xs text-gray-400">
-            جميع الحقوق محفوظة © 2026 - متجر عطور براند غزة
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-white/10 text-center text-xs text-gray-400">
+            جميع الحقوق محفوظة © 2026 عطور براند.
         </div>
     </footer>
 
-    <!-- Interactive JavaScript -->
+    <!-- WhatsApp Floating Button / زر الواتساب العائم -->
+    <a href="https://wa.me/" target="_blank" aria-label="تواصل عبر الواتساب" class="fixed bottom-6 left-6 z-50 bg-[#25D366] hover:bg-[#20ba5a] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl transition transform hover:scale-110 duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript Script / كود تشغيل حركة الأسئلة الشائعة -->
     <script>
-        // Toggle Mobile Menu
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const faqButtons = document.querySelectorAll(".faq-question");
 
-        // Toggle Accordion / FAQ
-        const accordionBtns = document.querySelectorAll('.accordion-btn');
-        accordionBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const content = btn.nextElementSibling;
-                const icon = btn.querySelector('i');
+            faqButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const currentItem = button.parentElement;
+                    const currentAnswer = currentItem.querySelector(".faq-answer");
 
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-                    document.querySelectorAll('.accordion-btn i').forEach(i => i.style.transform = 'rotate(0deg)');
-                    
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    icon.style.transform = 'rotate(180deg)';
-                }
+                    // إغلاق أي سؤال مفتوح سابقاً بحركة ناعمة
+                    document.querySelectorAll(".faq-item").forEach((item) => {
+                        if (item !== currentItem && item.classList.contains("active")) {
+                            item.classList.remove("active");
+                            const answer = item.querySelector(".faq-answer");
+                            answer.style.maxHeight = null;
+                            answer.style.opacity = "0";
+                            answer.style.paddingBottom = "0";
+                        }
+                    });
+
+                    // فتح أو إغلاق السؤال المباشر
+                    if (currentItem.classList.contains("active")) {
+                        currentItem.classList.remove("active");
+                        currentAnswer.style.maxHeight = null;
+                        currentAnswer.style.opacity = "0";
+                        currentAnswer.style.paddingBottom = "0";
+                    } else {
+                        currentItem.classList.add("active");
+                        currentAnswer.style.paddingBottom = "1.25rem";
+                        currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 30 + "px";
+                        currentAnswer.style.opacity = "1";
+                    }
+                });
             });
         });
     </script>
