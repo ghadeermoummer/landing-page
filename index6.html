@@ -300,22 +300,21 @@
     color: var(--text-muted);
 }
 
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
 .faq-item.active .faq-answer {
     padding: 1.2rem;
-    /* حدد قيمة أكبر قليلاً إذا كان محتوى الإجابات طويلاً، أو استخدم القيمة المناسبة */
     max-height: 500px; 
     visibility: visible;
     opacity: 1;
 }
 
-.faq-item.active i {
+/* هذا التعديل يقوم بتدوير السهم بدقة عند فتح السؤال */
+.faq-item.active .faq-question i {
     transform: rotate(180deg);
 }
-
-        .faq-item.active i {
-            transform: rotate(180deg);
-        }
-
         /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
